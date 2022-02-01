@@ -1,10 +1,12 @@
 package com.myorg;
 
+import software.amazon.awscdk.services.dynamodb.Attribute;
+import software.amazon.awscdk.services.dynamodb.AttributeType;
+import software.amazon.awscdk.services.dynamodb.GlobalSecondaryIndexProps;
+import software.amazon.awscdk.services.dynamodb.Table;
 import software.constructs.Construct;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
-// import software.amazon.awscdk.Duration;
-// import software.amazon.awscdk.services.sqs.Queue;
 
 public class DdbStreamsStack extends Stack {
     public DdbStreamsStack(final Construct scope, final String id) {
@@ -14,11 +16,24 @@ public class DdbStreamsStack extends Stack {
     public DdbStreamsStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
 
-        // The code that defines your stack goes here
+        Table table = Table.Builder.create(this, "positions")
+                .partitionKey(Attribute.builder()
+                        .name("account-id")
+                        .type(AttributeType.STRING)
+                        .build())
+                .sortKey(Attribute.builder()
+                        .name("symbol")
+                        .type(AttributeType.STRING)
+                        .build())
+                .build();
 
-        // example resource
-        // final Queue queue = Queue.Builder.create(this, "DdbStreamsQueue")
-        //         .visibilityTimeout(Duration.seconds(300))
-        //         .build();
+        table.addGlobalSecondaryIndex(GlobalSecondaryIndexProps
+                .builder()
+                .indexName("position-by-symbol")
+                .partitionKey(Attribute.builder()
+                        .name("symbol")
+                        .type(AttributeType.STRING)
+                        .build())
+                .build());
     }
 }
