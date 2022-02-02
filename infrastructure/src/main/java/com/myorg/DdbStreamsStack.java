@@ -1,5 +1,6 @@
 package com.myorg;
 
+import software.amazon.awscdk.RemovalPolicy;
 import software.amazon.awscdk.services.dynamodb.Attribute;
 import software.amazon.awscdk.services.dynamodb.AttributeType;
 import software.amazon.awscdk.services.dynamodb.GlobalSecondaryIndexProps;
@@ -17,6 +18,7 @@ public class DdbStreamsStack extends Stack {
         super(scope, id, props);
 
         Table table = Table.Builder.create(this, "positions")
+                .tableName("positions")
                 .partitionKey(Attribute.builder()
                         .name("account-id")
                         .type(AttributeType.STRING)
@@ -25,6 +27,7 @@ public class DdbStreamsStack extends Stack {
                         .name("symbol")
                         .type(AttributeType.STRING)
                         .build())
+                .removalPolicy(RemovalPolicy.DESTROY)
                 .build();
 
         table.addGlobalSecondaryIndex(GlobalSecondaryIndexProps
