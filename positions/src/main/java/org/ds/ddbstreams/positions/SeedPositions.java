@@ -1,4 +1,4 @@
-package com.example.myapp;
+package org.ds.ddbstreams.positions;
 
 
 import software.amazon.awssdk.regions.Region;
@@ -9,7 +9,7 @@ import software.amazon.awssdk.services.dynamodb.model.PutItemResponse;
 
 import java.util.Map;
 
-public class App
+public class SeedPositions
 {
     static String[] symbols = {
             "DWAC",

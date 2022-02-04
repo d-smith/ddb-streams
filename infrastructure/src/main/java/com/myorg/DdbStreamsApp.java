@@ -17,7 +17,7 @@ public class DdbStreamsApp {
 
         new DdbStreamsStack(app, "DdbStreamsStack", StackProps.builder()
                 .env(env)
-                .build());
+                .build(), false, true);
 
         app.synth();
     }
