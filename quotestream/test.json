@@ -1,0 +1,64 @@
+{
+    "Records": [
+        {
+            "eventID": "7b88d38ec9ae44dceb8a384cb2173b23",
+            "eventName": "MODIFY",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-west-2",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1644014501,
+                "Keys": {
+                    "symbol": {
+                        "S": "CEI"
+                    }
+                },
+                "NewImage": {
+                    "symbol": {
+                        "S": "CEI"
+                    },
+                    "price": {
+                        "N": "139.2675643770462"
+                    },
+                    "ts": {
+                        "N": "1644014501478"
+                    }
+                },
+                "SequenceNumber": "238800000000027629714443",
+                "SizeBytes": 43,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-west-2:230586709464:table/quotes/stream/2022-02-04T21:35:20.029"
+        },
+        {
+            "eventID": "a80b8279becb8775869571b88c06e8bb",
+            "eventName": "MODIFY",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-west-2",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1644014501,
+                "Keys": {
+                    "symbol": {
+                        "S": "DWAC"
+                    }
+                },
+                "NewImage": {
+                    "symbol": {
+                        "S": "DWAC"
+                    },
+                    "price": {
+                        "N": "277.3260952221545"
+                    },
+                    "ts": {
+                        "N": "1644014501603"
+                    }
+                },
+                "SequenceNumber": "238900000000027629714583",
+                "SizeBytes": 45,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-west-2:230586709464:table/quotes/stream/2022-02-04T21:35:20.029"
+        }
+    ]
+}

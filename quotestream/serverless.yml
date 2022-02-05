@@ -1,0 +1,20 @@
+service: quotetriggered
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: '20201221'
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action:
+            - 'dynamodb:query'
+            - 'dynamodb:updateItem'
+          Resource: '*'
+
+functions:
+  xt1:
+    handler: quotestream.handler
+    events:
+      - stream: ${env:DDB_STREAM_ARN}
