@@ -1,3 +1,5 @@
+.serverless/
+node_modules/
 .classpath.txt
 target
 .classpath

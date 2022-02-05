@@ -46,7 +46,7 @@ public class QuoteProducer {
             );
 
             System.out.println(String.format("%s %s %s", symbol, price, epochTime));
-            Thread.sleep(1000);
+            Thread.sleep(100);
         }
     }
 }

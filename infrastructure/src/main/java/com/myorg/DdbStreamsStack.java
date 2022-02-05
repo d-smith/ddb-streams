@@ -1,10 +1,7 @@
 package com.myorg;
 
 import software.amazon.awscdk.RemovalPolicy;
-import software.amazon.awscdk.services.dynamodb.Attribute;
-import software.amazon.awscdk.services.dynamodb.AttributeType;
-import software.amazon.awscdk.services.dynamodb.GlobalSecondaryIndexProps;
-import software.amazon.awscdk.services.dynamodb.Table;
+import software.amazon.awscdk.services.dynamodb.*;
 import software.constructs.Construct;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
@@ -48,6 +45,7 @@ public class DdbStreamsStack extends Stack {
                         .type(AttributeType.STRING)
                         .build())
                 .removalPolicy(RemovalPolicy.DESTROY)
+                .stream(StreamViewType.NEW_IMAGE)
                 .build();
     }
 
