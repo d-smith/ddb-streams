@@ -1,4 +1,4 @@
-# dd-streams
+# ddb-streams
 
 Playing around with ddb streams, specifically around using inserts to a table to drive processing downstream for related data in another table.
 
